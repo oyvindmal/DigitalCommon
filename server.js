@@ -27,6 +27,12 @@ else if(params[1] == 'off')
 
 }
 
+else if(params[1] == 'list')
+{
+	obj = { type: 'error', message : 'Not implemented'};
+	res.end(JSON.stringify(obj));
+}
+
 }
 else {
 obj = { type: 'Error', message : 'invalid'};
