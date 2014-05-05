@@ -13,14 +13,14 @@ if(params[0] == 'telldus')
 {
 if(params[1] == 'on')
 {
-	res.end("turning on\n");
 exec("tdtool -n " + params[2], null);
+res.end("turning on\n ");
 }
 
 else if(params[1] == 'off')
 {
-        res.end("Turning off \n");
         exec("tdtool -f " + params[2], null);
+	res.end("turning off\n");
 }
 
 }
