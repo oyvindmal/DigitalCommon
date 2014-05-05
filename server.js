@@ -14,13 +14,17 @@ if(params[0] == 'telldus')
 if(params[1] == 'on')
 {
 exec("tdtool -n " + params[2], null);
-res.end("turning on\n ");
+obj = { type: 'success', message : 'Turned on switch id ' + params[2], swid: params[2]};
+
+res.end(JSON.stringify(obj));
 }
 
 else if(params[1] == 'off')
 {
         exec("tdtool -f " + params[2], null);
-	res.end("turning off\n");
+	obj = { type: 'success', message : 'Turned off switch id ' + params[2], swid: params[2]};
+	res.end(JSON.stringify(obj));
+
 }
 
 }
