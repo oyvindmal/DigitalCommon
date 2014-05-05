@@ -1,6 +1,7 @@
 var http = require('http');
 var sys = require('sys');
 var exec = require('child_process').exec;
+var port = 8081;
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
@@ -27,5 +28,5 @@ else {
   res.end('Invalid Command\n');
 
 }
-}).listen(8081);
-console.log('Server running at http://127.0.0.1:1337/');
+}).listen(port);
+console.log('Server running at http://*:' + port);
