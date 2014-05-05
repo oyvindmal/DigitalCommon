@@ -3,6 +3,16 @@ var sys = require('sys');
 var exec = require('child_process').exec;
 var port = 8081;
 var obj;
+
+
+function telldusList()
+{
+var response = { type: 'error', message : 'Method not implemented'};
+
+return response;
+}
+
+
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'application/json'});
  var params = req.url.substring(1).split('/');
@@ -29,8 +39,8 @@ else if(params[1] == 'off')
 
 else if(params[1] == 'list')
 {
-	obj = { type: 'error', message : 'Not implemented'};
-	res.end(JSON.stringify(obj));
+	
+	res.end(JSON.stringify(telldusList()));
 }
 
 }
@@ -40,4 +50,6 @@ obj = { type: 'Error', message : 'invalid'};
 
 }
 }).listen(port);
+
+
 console.log('Server running at http://*:' + port);
