@@ -2,7 +2,7 @@ var http = require('http');
 var sys = require('sys');
 var exec = require('child_process').exec;
 var port = 8081;
-
+var obj;
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'application/json'});
  var params = req.url.substring(1).split('/');
@@ -13,7 +13,7 @@ if(params[0] == 'telldus')
 {
 if(params[1] == 'on')
 {
- res.end("turning on\n");
+	res.end("turning on\n");
 exec("tdtool -n " + params[2], null);
 }
 
@@ -25,7 +25,7 @@ else if(params[1] == 'off')
 
 }
 else {
-var obj = { type: 'Error', message : 'invalid'};
+obj = { type: 'Error', message : 'invalid'};
   res.end(JSON.stringify(obj));
 
 }
