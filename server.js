@@ -4,7 +4,7 @@ var exec = require('child_process').exec;
 var port = 8081;
 
 http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.writeHead(200, {'Content-Type': 'application/json'});
  var params = req.url.substring(1).split('/');
 console.log(params);
 //exec("tdtool -f 4", null);
@@ -25,7 +25,8 @@ else if(params[1] == 'off')
 
 }
 else {
-  res.end('Invalid Command\n');
+var obj = { type: 'Error', message : 'invalid'};
+  res.end(JSON.stringify(obj));
 
 }
 }).listen(port);
