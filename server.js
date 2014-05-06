@@ -7,8 +7,17 @@ var obj;
 
 function telldusList()
 {
-var response = { type: 'error', message : 'Method not implemented'};
+var response;
+exec("tdtool --list-devices",  function (error, stdout, stderr) {
+console.log(typeof stdout);
+//response = Buffer.toJSON(stdout);
+    if (error !== null) {
+      console.log('exec error: ' + error);
+    }
+});
 
+
+response = { 'foo' : 'bar '};
 return response;
 }
 
@@ -40,7 +49,7 @@ else if(params[1] == 'off')
 else if(params[1] == 'list')
 {
 	
-	res.end(JSON.stringify(telldusList()));
+	res.end(telldusList());
 }
 
 }
