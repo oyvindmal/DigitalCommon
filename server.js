@@ -12,6 +12,7 @@ var port = 8081;
 function telldusOn(swid)
 {
     console.log(swid);
+    // lolllllllll
     exec("tdtool -n " + swid, null);
     return { type: 'success', message : 'Turned on switch id ' + swid, swid: swid};
 }
