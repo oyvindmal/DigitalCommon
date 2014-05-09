@@ -11,11 +11,16 @@ var port = 8081;
 
 function telldusOn(swid)
 {
-    console.log(swid);
-    // lolllllllll
     exec("tdtool -n " + swid, null);
     return { type: 'success', message : 'Turned on switch id ' + swid, swid: swid};
 }
+
+function telldusOff(swid)
+{
+    exec("tdtool -f " + swid, null);
+    return { type: 'success', message : 'Turned off switch id ' + swid, swid: swid};
+}
+
 
 // Web API
 
@@ -28,16 +33,12 @@ if(params[0] == 'telldus')
 {
     if(params[1] == 'on')
     {
-        
-        
         res.end(JSON.stringify(telldusOn(params[2])));
     }
     
     else if(params[1] == 'off')
     {
-        exec("tdtool -f " + params[2], null);
-        obj = { type: 'success', message : 'Turned off switch id ' + params[2], swid: params[2]};
-        res.end(JSON.stringify(obj));
+        res.end(JSON.stringify(telldusOff(params[2])));
     }
  
 }
