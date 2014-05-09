@@ -1,8 +1,13 @@
+//Requirements
 var net = require('net');
 var http = require('http');
 var sys = require('sys');
 var exec = require('child_process').exec;
+
+//Configurations
 var port = 8081;
+
+// Web API
 var obj;
 
 http.createServer(function (req, res) {
@@ -41,6 +46,7 @@ obj = { type: 'Error', message : 'invalid'};
 
 console.log('Server running at http://*:' + port);
 
+//Telldus event listener
  
 // Set up a connection to the TelldusEvents socket
 var conn = net.createConnection('/tmp/TelldusEvents');
