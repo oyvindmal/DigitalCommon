@@ -1,17 +1,9 @@
+var net = require('net');
 var http = require('http');
 var sys = require('sys');
 var exec = require('child_process').exec;
 var port = 8081;
 var obj;
-
-
-/*function telldusList()
-{
-  exec("tdtool --list-devices",  function (error, stdout, stderr) {
-        return stdout.toString();
-  });
-}*/
-
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'application/json'});
@@ -37,10 +29,6 @@ else if(params[1] == 'off')
 
 }
 
-/*else if(params[1] == 'list')
-{
-	res.end(telldusList());	
- }*/
 
 }
 else {
@@ -52,7 +40,7 @@ obj = { type: 'Error', message : 'invalid'};
 
 
 console.log('Server running at http://*:' + port);
-var net = require('net');
+
  
 // Set up a connection to the TelldusEvents socket
 var conn = net.createConnection('/tmp/TelldusEvents');
