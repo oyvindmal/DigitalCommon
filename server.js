@@ -11,6 +11,7 @@ var port = 8081;
 
 function telldusOn(swid)
 {
+    console.log(swid);
     exec("tdtool -n " + swid, null);
     return { type: 'success', message : 'Turned on switch id ' + swid, swid: swid};
 }
@@ -65,5 +66,5 @@ conn.on('connect' , function () {
 //Eventlistener on data recieved
 conn.on('data', function(data) {
         //Log the data to the console
-        console.log(data);
+       // console.log(data);
 });
