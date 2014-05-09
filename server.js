@@ -7,8 +7,16 @@ var exec = require('child_process').exec;
 //Configurations
 var port = 8081;
 
+//Telldus functions
+
+function telldusOn(swid)
+{
+    exec("tdtool -n " + swid, null);
+    return { type: 'success', message : 'Turned on switch id ' + swid, swid: swid};
+}
+
 // Web API
-var obj;
+
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'application/json'});
@@ -18,9 +26,9 @@ if(params[0] == 'telldus')
 {
     if(params[1] == 'on')
     {
-    exec("tdtool -n " + params[2], null);
-        obj = { type: 'success', message : 'Turned on switch id ' + params[2], swid: params[2]};
-        res.end(JSON.stringify(obj));
+        
+        
+        res.end(JSON.stringify(telldusOn(params[2])));
     }
     
     else if(params[1] == 'off')
@@ -32,7 +40,7 @@ if(params[0] == 'telldus')
  
 }
 else {
-    obj = { type: 'Error', message : 'invalid'};
+    var obj = { type: 'Error', message : 'invalid'};
     res.end(JSON.stringify(obj));
 
 }
