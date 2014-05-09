@@ -5,21 +5,12 @@ var port = 8081;
 var obj;
 
 
-function telldusList()
+/*function telldusList()
 {
-var response;
-exec("tdtool --list-devices",  function (error, stdout, stderr) {
-console.log(typeof stdout);
-//response = Buffer.toJSON(stdout);
-    if (error !== null) {
-      console.log('exec error: ' + error);
-    }
-});
-
-
-response = { 'foo' : 'bar '};
-return response;
-}
+  exec("tdtool --list-devices",  function (error, stdout, stderr) {
+        return stdout.toString();
+  });
+}*/
 
 
 http.createServer(function (req, res) {
@@ -46,11 +37,10 @@ else if(params[1] == 'off')
 
 }
 
-else if(params[1] == 'list')
+/*else if(params[1] == 'list')
 {
-	
-	res.end(telldusList());
-}
+	res.end(telldusList());	
+ }*/
 
 }
 else {
@@ -62,3 +52,22 @@ obj = { type: 'Error', message : 'invalid'};
 
 
 console.log('Server running at http://*:' + port);
+var net = require('net');
+ 
+// Set up a connection to the TelldusEvents socket
+var conn = net.createConnection('/tmp/TelldusEvents');
+ 
+// Set the encoding so that you get data that is actually readable by humans
+conn.setEncoding('utf-8');
+ 
+//Eventlistener on connection
+conn.on('connect' , function () {
+        console.log("Connected");
+});
+ 
+ 
+//Eventlistener on data recieved
+conn.on('data', function(data) {
+        //Log the data to the console
+        console.log(data);
+});
