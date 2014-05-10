@@ -1,3 +1,5 @@
+var net = require('net');
+
 // Set up a connection to the TelldusEvents socket
 var conn = net.createConnection('/tmp/TelldusEvents');
 
