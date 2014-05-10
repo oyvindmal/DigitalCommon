@@ -74,5 +74,14 @@ conn.on('connect' , function () {
 //Eventlistener on data recieved
 conn.on('data', function(data) {
         //Log the data to the console
-       // console.log(data);
+       // console.log(data);¨
+       
+       if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnoff;i1s')
+       {
+           console.log("Switch OFF 1")
+       }
+        if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnon;i1s')
+       {
+           console.log("Switch ON 1")
+       }
 });
