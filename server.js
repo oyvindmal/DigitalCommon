@@ -21,9 +21,7 @@ function telldusOff(swid)
     return { type: 'success', message : 'Turned off switch id ' + swid, swid: swid};
 }
 
-
 // Web API
-
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'application/json'});
