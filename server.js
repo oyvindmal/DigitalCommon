@@ -28,18 +28,23 @@ http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'application/json'});
     
     var params = req.url.substring(1).split('/');
+    
     console.log(params);
     
-        if(params[0] == 'telldus')
+    var controllerName = params[0];
+    
+        if(controllerName == 'telldus')
         {
-            if(params[1] == 'on')
+            var command = params[1];
+            var swid = params[2];
+            if(command == 'on')
             {
-                res.end(JSON.stringify(telldusOn(params[2])));
+                res.end(JSON.stringify(telldusOn(swid)));
             }
             
-            else if(params[1] == 'off')
+            if(command == 'off')
             {
-                res.end(JSON.stringify(telldusOff(params[2])));
+                res.end(JSON.stringify(telldusOff(swid)));
             }
          
         }
