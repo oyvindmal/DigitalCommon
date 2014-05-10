@@ -24,27 +24,30 @@ function telldusOff(swid)
 // Web API
 
 http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'application/json'});
- var params = req.url.substring(1).split('/');
-console.log(params);
-if(params[0] == 'telldus')
-{
-    if(params[1] == 'on')
-    {
-        res.end(JSON.stringify(telldusOn(params[2])));
-    }
     
-    else if(params[1] == 'off')
-    {
-        res.end(JSON.stringify(telldusOff(params[2])));
-    }
- 
-}
-else {
-    var obj = { type: 'Error', message : 'invalid'};
-    res.end(JSON.stringify(obj));
-
-}
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    
+    var params = req.url.substring(1).split('/');
+    console.log(params);
+    
+        if(params[0] == 'telldus')
+        {
+            if(params[1] == 'on')
+            {
+                res.end(JSON.stringify(telldusOn(params[2])));
+            }
+            
+            else if(params[1] == 'off')
+            {
+                res.end(JSON.stringify(telldusOff(params[2])));
+            }
+         
+        }
+        else {
+            var obj = { type: 'Error', message : 'invalid'};
+            res.end(JSON.stringify(obj));
+        
+        }
 }).listen(webApiPort);
 
 console.log('Server running at http://*:' + webApiPort);
