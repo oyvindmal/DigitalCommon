@@ -5,7 +5,7 @@ var sys = require('sys');
 var exec = require('child_process').exec;
 
 //Configurations
-var port = 8081;
+var webApiPort = 8081;
 
 //Telldus functions
 
@@ -47,9 +47,9 @@ else {
     res.end(JSON.stringify(obj));
 
 }
-}).listen(port);
+}).listen(webApiPort);
 
-console.log('Server running at http://*:' + port);
+console.log('Server running at http://*:' + webApiPort);
 
 //Telldus event listener
  
