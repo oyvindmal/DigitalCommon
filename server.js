@@ -78,19 +78,23 @@ conn.on('data', function(data) {
        
        if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnoff;i1s')
        {
-           console.log("Switch OFF 1")
+           console.log("Switch OFF 1");
+           telldusOff(4);
        }
         if(data == '16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnon;i1s')
        {
-           console.log("Switch ON 1")
+           console.log("Switch ON 1");
+           telldusOn(4);
        }
        if(data == '16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:11667822;unit:11;group:0;method:turnon;i1s')
        {
             console.log("Switch ON 2");    
+            telldusOn(6);
        }
         if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:11;group:0;method:turnoff;i1s')
        {
-            console.log("Switch OFF 2");    
+            console.log("Switch OFF 2");
+            telldusOff(6);
        }
        
 });
