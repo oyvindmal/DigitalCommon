@@ -88,7 +88,7 @@ conn.on('data', function(data) {
        {
             console.log("Switch ON 2");    
        }
-        if(data == '16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:11667822;unit:11;group:0;method:turnoff;i1s')
+        if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:11;group:0;method:turnoff;i1s')
        {
             console.log("Switch OFF 2");    
        }
