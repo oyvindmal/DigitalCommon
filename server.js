@@ -25,7 +25,7 @@ function telldusOff(swid)
 
 http.createServer(function (req, res) {
 
-    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.writeHead(200, {'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*'});
 
     var params = req.url.substring(1).split('/');
 
