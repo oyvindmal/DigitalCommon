@@ -1,6 +1,6 @@
 var https = require("https");
 var fs  = require("fs");
-sendMessage("lol");
+sendMessage("lol dette er en lang tekst som");
 function sendMessage(message)
 {
 var obj = JSON.parse(fs.readFileSync('config.json', 'utf8'));
@@ -9,13 +9,27 @@ var key = obj.pushcoKey;
 var hostname = 'api.push.co';
 var base = "/1.0/push/";
 
-var url = base + "?message=" + message + "&api_key=" + key + "&api_secret=" + secret;
+var jsonobj = {
+    "message" : message,
+    "api_key" : key,
+    "api_secret" : secret
+}
+console.log(jsonobj)
+
+var jsonobjString = JSON.stringify(jsonobj);
+var headers = {
+    'Content-Type:' : 'application/json',
+    'Content-Length' : jsonobjString.length
+}
 var options = {
     host: hostname,
     port: 443,
-    path: url,
-    method: 'POST'
+    path: base,
+    method: 'POST',
+    headers: headers
 };
+
+
 
 var req = https.request(options, function(res){
     console.log('status: ' + res.statusCode);
@@ -32,8 +46,7 @@ req.on('error', function(e) {
 });
 
 // write data to request body
-req.write('data\n');
-req.write('data\n');
+req.write(jsonobjString)
 req.end();
-console.log(url);    
+console.log(base);    
 }
