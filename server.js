@@ -37,7 +37,7 @@ var jsonobj = {
     "api_key" : key,
     "api_secret" : secret
 }
-console.log(jsonobj)
+
 
 var jsonobjString = JSON.stringify(jsonobj);
 var headers = {
@@ -71,7 +71,7 @@ req.on('error', function(e) {
 // write data to request body
 req.write(jsonobjString)
 req.end();
-console.log(base);    
+   
 }
 
 // Web API
