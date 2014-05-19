@@ -5,6 +5,10 @@
             {
                 "type" : "TelldusOff",
                 "SwitchId" : 4
+            },
+             {
+                "type" : "TelldusOff",
+                "SwitchId" : 2
             }
            
         ]
@@ -15,6 +19,10 @@
             {
                 "type" : "TelldusOn",
                 "SwitchId" : 4
+            },
+            {
+                "type" : "TelldusOn",
+                "SwitchId" : 2
             }
            
         ]
@@ -25,6 +33,10 @@
             {
                 "type" : "TelldusOn",
                 "SwitchId" : 6
+            },
+            {
+                "type" : "TelldusOn",
+                "SwitchId" : 5
             }
            
         ]
@@ -35,6 +47,10 @@
             {
                 "type" : "TelldusOff",
                 "SwitchId" : 6
+            },
+              {
+                "type" : "TelldusOff",
+                "SwitchId" : 5
             }
            
         ]
