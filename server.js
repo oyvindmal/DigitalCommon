@@ -4,7 +4,7 @@ var https = require("https");
 var fs  = require("fs");
 var http = require('http');
 var sys = require('sys');
-var exec = require('child_process').exec;
+var telldus = require("./lib/controllers/telldus.js");
 
 //Configurations
 var webApiPort = 8081;
@@ -92,12 +92,12 @@ http.createServer(function (req, res) {
             var swid = params[2];
             if(command == 'on')
             {
-                res.end(JSON.stringify(telldusOn(swid)));
+                res.end(JSON.stringify(telldus.on(swid)));
             }
 
             if(command == 'off')
             {
-                res.end(JSON.stringify(telldusOff(swid)));
+                res.end(JSON.stringify(telldus.off(swid)));
             }
 
         }
@@ -132,24 +132,24 @@ conn.on('data', function(data) {
        if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnoff;i1s')
        {
            console.log("Switch OFF 1");
-           telldusOff(4);
+           telldus.off(4);
            sendMessage("Turning off main lights");
        }
         if(data == '16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnon;i1s')
        {
            console.log("Switch ON 1");
-           telldusOn(4);
+           telldus.on(4);
            sendMessage("Turning on main lights");
        }
        if(data == '16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:11667822;unit:11;group:0;method:turnon;i1s')
        {
             console.log("Switch ON 2");    
-            telldusOn(6);
+            telldus.on(6);
        }
         if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:11;group:0;method:turnoff;i1s')
        {
             console.log("Switch OFF 2");
-            telldusOff(6);
+            telldus.off(6);
        }
        
 });
