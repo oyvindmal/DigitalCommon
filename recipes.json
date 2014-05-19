@@ -64,7 +64,7 @@
                 "SwitchId" : 7
             }
         ]
-    }
+    },
      {
         "input" : "16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:13055526;unit:11;group:0;method:turnoff;i1s",
         "commands" : [
