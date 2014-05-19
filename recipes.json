@@ -1,0 +1,12 @@
+[
+    {
+        "input" : "16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnoff;i1s",
+        "commands" : [
+            {
+                "type" : "TelldusOff",
+                "SwitchId" : 4
+            },
+           
+        ]
+    }
+]

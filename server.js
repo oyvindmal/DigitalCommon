@@ -5,23 +5,12 @@ var fs  = require("fs");
 var http = require('http');
 var sys = require('sys');
 var telldus = require("./lib/controllers/telldus.js");
+var parser = require("./lib/parser.js");
 
 //Configurations
 var webApiPort = 8081;
 
-//Telldus functions
 
-function telldusOn(swid)
-{
-    exec("tdtool -n " + swid, null);
-    return { type: 'success', message : 'Turned on switch id ' + swid, swid: swid};
-}
-
-function telldusOff(swid)
-{
-    exec("tdtool -f " + swid, null);
-    return { type: 'success', message : 'Turned off switch id ' + swid, swid: swid};
-}
 
 //pushco
 function sendMessage(message)
@@ -127,29 +116,30 @@ conn.on('connect' , function () {
 //Eventlistener on data recieved
 conn.on('data', function(data) {
         //Log the data to the console
-       // console.log(data);¨
-       
-       if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnoff;i1s')
+       // console.log(data);
+       parser.sendInput(data);
+       /*if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnoff;i1s')
        {
            console.log("Switch OFF 1");
            telldus.off(4);
-           sendMessage("Turning off main lights");
+           //sendMessage("Turning off main lights");
        }
         if(data == '16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:11667822;unit:12;group:0;method:turnon;i1s')
        {
            console.log("Switch ON 1");
            telldus.on(4);
-           sendMessage("Turning on main lights");
+           //sendMessage("Turning on main lights");
        }
        if(data == '16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:11667822;unit:11;group:0;method:turnon;i1s')
        {
             console.log("Switch ON 2");    
-            telldus.on(6);
+            //telldus.on(6);
        }
         if(data == '16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:11667822;unit:11;group:0;method:turnoff;i1s')
        {
             console.log("Switch OFF 2");
-            telldus.off(6);
+            //telldus.off(6);
        }
+       */
        
 });
