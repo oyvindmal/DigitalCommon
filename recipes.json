@@ -66,7 +66,7 @@
         ]
     },
      {
-        "input" : "16:TDRawDeviceEvent95:class:command;protocol:arctech;model:selflearning;house:13055526;unit:11;group:0;method:turnoff;i1s",
+        "input" : "16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:13055526;unit:11;group:0;method:turnoff;i1s",
         "commands" : [
             {
                 "type" : "TelldusOff",
