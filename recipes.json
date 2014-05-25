@@ -73,5 +73,23 @@
                 "SwitchId" : 7
             }
         ]
+    },
+     {
+        "input" : "16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:10611770;unit:10;group:0;method:turnoff;i1s",
+        "commands" : [
+            {
+                "type" : "TelldusOff",
+                "SwitchId" : 4
+            }
+        ]
+    },
+    {
+        "input" : "16:TDRawDeviceEvent96:class:command;protocol:arctech;model:selflearning;house:10611770;unit:10;group:0;method:turnon;i1s",
+        "commands" : [
+            {
+                "type" : "TelldusOn",
+                "SwitchId" : 4
+            }
+        ]
     }
 ]
